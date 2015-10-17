@@ -2,17 +2,17 @@ public class Flarper {
 
 	private int health;
 	private boolean alive;
-	private int sword;
 	private int playerID;
+	private Sword sword;
 	
 	public Flarper(int playerID) {
 		health = 100;
-		alive = true;
+		setAlive(true);
 		this.playerID = playerID;
 	}
 	
-	public void pairSword(int swordID) {
-		sword = swordID;
+	public void pairSword(Sword sword) {
+		this.setSword(sword);
 	}
 	
 	public void takeDamage(int damage) {
@@ -22,7 +22,23 @@ public class Flarper {
 	
 	private void checkDeath() {
 		if(health <= 0) {
-			alive = false;
+			setAlive(false);
 		}
+	}
+
+	public boolean isAlive() {
+		return alive;
+	}
+
+	public void setAlive(boolean alive) {
+		this.alive = alive;
+	}
+
+	public Sword getSword() {
+		return sword;
+	}
+
+	public void setSword(Sword sword) {
+		this.sword = sword;
 	}
 }
